@@ -1,0 +1,8 @@
+**/.ipynb_checkpoints
+**/*.pyc
+.*/
+**/*.save*
+.bash_history
+.credentials
+.selected_editor
+*.log

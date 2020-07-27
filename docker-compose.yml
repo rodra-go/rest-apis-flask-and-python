@@ -1,0 +1,12 @@
+version: '3'
+services:
+
+  jupyter:
+    container_name: jupyter_container
+    build: docker/jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan/    
+    environment: 
+      JUPYTER_ALLOW_INSECURE_WRITES: 1
