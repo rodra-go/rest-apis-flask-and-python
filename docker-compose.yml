@@ -1,12 +1,11 @@
 version: '3'
 services:
 
-  jupyter:
-    container_name: jupyter_container
-    build: docker/jupyter
-    ports:
-      - "8888:8888"
+  flask:
+    container_name: udemy_flask_and_python
+    build: docker/python
+    tty: true
     volumes:
-      - .:/home/jovyan/    
-    environment: 
-      JUPYTER_ALLOW_INSECURE_WRITES: 1
+      - .:/home/
+    ports:
+      - "5000:5000"
