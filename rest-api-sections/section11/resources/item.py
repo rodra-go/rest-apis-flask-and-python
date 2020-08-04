@@ -5,8 +5,8 @@ from models.item import ItemModel
 
 """
 The following resources contain endpoints that are protected by jwt,
-one may need a valid access token, a valid fresh token or a valid token with authorized privilege 
-to access each endpoint, details can be found in the README.md doc.  
+one may need a valid access token, a valid fresh token or a valid token with authorized privilege
+to access each endpoint, details can be found in the README.md doc.
 """
 
 
@@ -46,7 +46,7 @@ class Item(Resource):
 
         return item.json(), 201
 
-    @jwt_required
+    @fresh_jwt_required
     def delete(self, name):
         claims = get_jwt_claims()
         if not claims['is_admin']:
@@ -58,6 +58,7 @@ class Item(Resource):
             return {'message': 'Item deleted.'}
         return {'message': 'Item not found.'}, 404
 
+    @fresh_jwt_required
     def put(self, name):
         data = self.parser.parse_args()
 

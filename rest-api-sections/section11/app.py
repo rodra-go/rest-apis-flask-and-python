@@ -17,7 +17,7 @@ api = Api(app)
 """
 JWT related configuration. The following functions includes:
 1) add claims to each jwt
-2) customize the token expired error message 
+2) customize the token expired error message
 """
 app.config['JWT_SECRET_KEY'] = 'jose'  # we can also use app.secret like before, Flask-JWT-Extended can recognize both
 app.config['JWT_BLACKLIST_ENABLED'] = True  # enable blacklist feature
@@ -103,4 +103,4 @@ api.add_resource(UserLogout, '/logout')
 
 if __name__ == '__main__':
     db.init_app(app)
-    app.run(port=5000, debug=True)
+    app.run(port=5000, debug=True, host='0.0.0.0')

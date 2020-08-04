@@ -19,7 +19,10 @@ RUN usermod -aG 100 docker
 # Install python libraries
 RUN pip install Flask-RESTful
 RUN pip install Flask-JWT
+RUN pip install Flask-JWT-Extended
 RUN pip install Flask-SQLAlchemy
+RUN pip install uwsgi
+RUN pip install psycopg2
 
 EXPOSE 5000
 
